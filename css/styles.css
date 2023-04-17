@@ -176,6 +176,37 @@ display: block;
 color: var(--button-color);
 }
 
+.site-nav-active {
+  color: var(--button-color);
+}
+
+.site-nav-stay {
+  color: var(--main-color);
+}
+
+.site-nav-line {
+  position: relative;
+}
+
+.site-nav-line::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: 21px;
+  background-color: var(--button-color);
+  border-radius: 2px;
+  /* opacity:0 ; */
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header-menu {
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
 /* Hero */
 
 .section-hero {
@@ -224,6 +255,7 @@ padding: 16px 32px;
 display: inline-block;
 text-align: center;
 justify-content: center;
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:active {
 color: #FFFFFF;
@@ -640,4 +672,101 @@ line-height: 1.5;
 letter-spacing: 0.02em;
 color: var(--second-color);
 margin-top: 8px;
+}
+
+
+.overlay-conteiner {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-link {
+  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-link :hover,
+.hero-link :focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+      0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+} 
+
+.hero-link :hover .overlay,
+.hero-link :focus .overlay {
+  transform: translate(0, 0);
+}
+
+.overlay {
+  background-color: var(--logo-color);
+  color: var(--color-cloud);
+  line-height: 1.5;
+  padding: 40px 32px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+/* Modal */
+
+ .backdrop { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  min-width: 408px;
+  min-height: 576px;
+  background-color: #FCFCFC;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button {
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-cornflower);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  top: 32px;
+  right: 24px;
+  cursor: pointer;
+  fill: var(--color-NAVYBLU);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  fill: var(--color-white);
+  background-color: var(--button-color);
 }
